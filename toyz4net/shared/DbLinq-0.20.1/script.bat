@@ -1,0 +1,1 @@
+DbMetal --database=XcarDataContext --namespace=Model --code=XcarModel.cs --provider=Sqlite --conn="Data Source=F:\svn\toyz4net\Toyz4net.App\bin\x86\Debug\local.db;"
