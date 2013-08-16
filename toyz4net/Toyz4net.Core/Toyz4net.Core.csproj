@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A0A02C7F-82CD-438C-888F-3765E7980634}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Toyz4net.Core</RootNamespace>
+    <AssemblyName>Toyz4net.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="fastJSON, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\shared\fastJSON\fastJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\shared\NHibernate\Required_Bins\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="JSONSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\shared\Jsonsharp\JSONSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.30000, Culture=neutral, PublicKeyToken=3cda94b1926e6fbc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\shared\log4net\1.2.10.30000\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.Office.Tools.Excel, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\shared\NHibernate\Required_Bins\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\FolderDialog.cs" />
+    <Compile Include="Client\BaseClient.cs" />
+    <Compile Include="Model\BaseAdapter.cs" />
+    <Compile Include="Model\BaseCacheModel.cs" />
+    <Compile Include="Plugin\BaseModel.cs" />
+    <Compile Include="Plugin\SimplePager.cs" />
+    <Compile Include="Plugin\ValidateCode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ChinaZipSearchWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ForexRmbRateWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\IpAddressSearchWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MobileCodeWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NorthBoundAPIService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RandomFontsWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TraditionalSimplifiedWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ValidateCodeWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ValidateEmailWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WeatherWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WeatherWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ChinaZipSearchService.cs">
+    </Compile>
+    <Compile Include="Service\ELongApiService.cs" />
+    <Compile Include="Service\ForexRmbRateService.cs" />
+    <Compile Include="Service\IpAddressSearchService.cs" />
+    <Compile Include="Service\MobileCodeService.cs" />
+    <Compile Include="Service\RandomFontsService.cs" />
+    <Compile Include="Service\TraditionalSimplifiedService.cs" />
+    <Compile Include="Service\ValidateCodeService.cs" />
+    <Compile Include="Service\ValidateEmailService.cs" />
+    <Compile Include="Service\WeatherService.cs" />
+    <Compile Include="Util\BaiduApiUtil.cs" />
+    <Compile Include="Util\DateTimeUtil.cs" />
+    <Compile Include="Util\EasyuiUtil.cs" />
+    <Compile Include="Util\EMailUtil.cs" />
+    <Compile Include="Util\ExcelUtil.cs" />
+    <Compile Include="Util\FileUtil.cs" />
+    <Compile Include="Util\JsonUtil.cs" />
+    <Compile Include="Util\NetClientUtil.cs" />
+    <Compile Include="Util\NHibernateUtil.cs" />
+    <Compile Include="Util\NumberUtil.cs" />
+    <Compile Include="Util\ObjectUtil.cs" />
+    <Compile Include="Util\PagerUtil.cs" />
+    <Compile Include="Util\ResultUtil.cs" />
+    <Compile Include="Util\ServiceUtil.cs" />
+    <Compile Include="Util\StringUtil.cs" />
+    <Compile Include="Util\WebUtil.cs" />
+    <Compile Include="Client\ELongStaticClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ChinaZipSearchWebService\" />
+    <WCFMetadataStorage Include="Service References\ForexRmbRateWebService\" />
+    <WCFMetadataStorage Include="Service References\IpAddressSearchWebService\" />
+    <WCFMetadataStorage Include="Service References\MobileCodeWS\" />
+    <WCFMetadataStorage Include="Service References\NorthBoundAPIService\" />
+    <WCFMetadataStorage Include="Service References\RandomFontsWebService\" />
+    <WCFMetadataStorage Include="Service References\TraditionalSimplifiedWebService\" />
+    <WCFMetadataStorage Include="Service References\ValidateCodeWebService\" />
+    <WCFMetadataStorage Include="Service References\ValidateEmailWebService\" />
+    <WCFMetadataStorage Include="Service References\WeatherWebService\" />
+    <WCFMetadataStorage Include="Service References\WeatherWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NorthBoundAPIService\NorthBoundAPIService.disco" />
+    <None Include="Service References\NorthBoundAPIService\NorthBoundAPIService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NorthBoundAPIService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NorthBoundAPIService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NorthBoundAPIService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\NorthBoundAPIService\Toyz4net.Core.NorthBoundAPIService.CancelHotelOrderByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorthBoundAPIService\Toyz4net.Core.NorthBoundAPIService.GetHotelBaseInfoListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorthBoundAPIService\Toyz4net.Core.NorthBoundAPIService.GetHotelInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorthBoundAPIService\Toyz4net.Core.NorthBoundAPIService.GetHotelListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorthBoundAPIService\Toyz4net.Core.NorthBoundAPIService.GetHotelOrderDetailByOrderIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorthBoundAPIService\Toyz4net.Core.NorthBoundAPIService.GetHotelOrderListByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorthBoundAPIService\Toyz4net.Core.NorthBoundAPIService.GetHotelOrderListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorthBoundAPIService\Toyz4net.Core.NorthBoundAPIService.GetHotelProductVouchForAPIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorthBoundAPIService\Toyz4net.Core.NorthBoundAPIService.GetHotelRoomPriceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorthBoundAPIService\Toyz4net.Core.NorthBoundAPIService.GetInstantConfirmResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorthBoundAPIService\Toyz4net.Core.NorthBoundAPIService.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorthBoundAPIService\Toyz4net.Core.NorthBoundAPIService.SubmitHotelOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WeatherWS\WeatherWS.disco" />
+    <None Include="Service References\WeatherWS\WeatherWS.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WeatherWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WeatherWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Service References\WeatherWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MobileCodeWS\MobileCodeWS.disco" />
+    <None Include="Service References\MobileCodeWS\MobileCodeWS.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MobileCodeWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MobileCodeWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MobileCodeWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ForexRmbRateWebService\ForexRmbRateWebService.disco" />
+    <None Include="Service References\ForexRmbRateWebService\ForexRmbRateWebService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ForexRmbRateWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ForexRmbRateWebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ForexRmbRateWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\TraditionalSimplifiedWebService\TraditionalSimplifiedWebService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TraditionalSimplifiedWebService\TraditionalSimplifiedWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TraditionalSimplifiedWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TraditionalSimplifiedWebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TraditionalSimplifiedWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ValidateEmailWebService\ValidateEmailWebService.disco" />
+    <None Include="Service References\ValidateEmailWebService\ValidateEmailWebService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ValidateEmailWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ValidateEmailWebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ValidateEmailWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ValidateCodeWebService\ValidateCodeWebService.disco" />
+    <None Include="Service References\ValidateCodeWebService\ValidateCodeWebService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ValidateCodeWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ValidateCodeWebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ValidateCodeWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IpAddressSearchWebService\IpAddressSearchWebService.disco" />
+    <None Include="Service References\IpAddressSearchWebService\IpAddressSearchWebService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IpAddressSearchWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IpAddressSearchWebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IpAddressSearchWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WeatherWebService\WeatherWebService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WeatherWebService\WeatherWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WeatherWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WeatherWebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ChinaZipSearchWebService\ChinaZipSearchWebService.wsdl" />
+    <None Include="Service References\WeatherWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ChinaZipSearchWebService\ChinaZipSearchWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ChinaZipSearchWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ChinaZipSearchWebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ChinaZipSearchWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RandomFontsWebService\RandomFontsWebService.disco" />
+    <None Include="Service References\RandomFontsWebService\RandomFontsWebService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RandomFontsWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RandomFontsWebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RandomFontsWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

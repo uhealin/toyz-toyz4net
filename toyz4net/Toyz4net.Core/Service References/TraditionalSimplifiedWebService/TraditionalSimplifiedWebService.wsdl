@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://webxml.com.cn/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://webxml.com.cn/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;a href="http://www.webxml.com.cn/" target="_blank"&gt;WebXml.com.cn&lt;/a&gt; &lt;strong&gt;中文简体字&lt;-&gt;繁体字转换 WEB 服务&lt;/strong&gt;&lt;br /&gt;此中文简体字&lt;-&gt;繁体字转换Web Services请不要用于任何商业目的，若有需要请&lt;a href="http://www.webxml.com.cn/zh_cn/contact_us.aspx" target="_blank"&gt;联系我们&lt;/a&gt;，欢迎技术交流。 QQ：8409035&lt;br /&gt;&lt;strong&gt;使用本站 WEB 服务请注明或链接本站：http://www.webxml.com.cn/ 感谢大家的支持&lt;/strong&gt;！&lt;br /&gt;&lt;br /&gt;&amp;nbsp;</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://webxml.com.cn/">
+      <s:element name="toSimplifiedChinese">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="toSimplifiedChineseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="toSimplifiedChineseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="toTraditionalChinese">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="toTraditionalChineseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="toTraditionalChineseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="toSimplifiedChineseSoapIn">
+    <wsdl:part name="parameters" element="tns:toSimplifiedChinese" />
+  </wsdl:message>
+  <wsdl:message name="toSimplifiedChineseSoapOut">
+    <wsdl:part name="parameters" element="tns:toSimplifiedChineseResponse" />
+  </wsdl:message>
+  <wsdl:message name="toTraditionalChineseSoapIn">
+    <wsdl:part name="parameters" element="tns:toTraditionalChinese" />
+  </wsdl:message>
+  <wsdl:message name="toTraditionalChineseSoapOut">
+    <wsdl:part name="parameters" element="tns:toTraditionalChineseResponse" />
+  </wsdl:message>
+  <wsdl:message name="toSimplifiedChineseHttpGetIn">
+    <wsdl:part name="sText" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="toSimplifiedChineseHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="toTraditionalChineseHttpGetIn">
+    <wsdl:part name="sText" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="toTraditionalChineseHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="toSimplifiedChineseHttpPostIn">
+    <wsdl:part name="sText" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="toSimplifiedChineseHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="toTraditionalChineseHttpPostIn">
+    <wsdl:part name="sText" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="toTraditionalChineseHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="TraditionalSimplifiedWebServiceSoap">
+    <wsdl:operation name="toSimplifiedChinese">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;br /&gt;&lt;h3&gt;繁体字转换为简体字&lt;/h3&gt;&lt;p&gt;输入参数：sText = 字符串； 返回数据：字符串。&lt;/p&gt;&lt;br /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:toSimplifiedChineseSoapIn" />
+      <wsdl:output message="tns:toSimplifiedChineseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="toTraditionalChinese">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;br /&gt;&lt;h3&gt;简体字转换为繁体字&lt;/h3&gt;&lt;p&gt;输入参数：sText = 字符串； 返回数据：字符串。&lt;/p&gt;&lt;br /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:toTraditionalChineseSoapIn" />
+      <wsdl:output message="tns:toTraditionalChineseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TraditionalSimplifiedWebServiceHttpGet">
+    <wsdl:operation name="toSimplifiedChinese">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;br /&gt;&lt;h3&gt;繁体字转换为简体字&lt;/h3&gt;&lt;p&gt;输入参数：sText = 字符串； 返回数据：字符串。&lt;/p&gt;&lt;br /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:toSimplifiedChineseHttpGetIn" />
+      <wsdl:output message="tns:toSimplifiedChineseHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="toTraditionalChinese">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;br /&gt;&lt;h3&gt;简体字转换为繁体字&lt;/h3&gt;&lt;p&gt;输入参数：sText = 字符串； 返回数据：字符串。&lt;/p&gt;&lt;br /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:toTraditionalChineseHttpGetIn" />
+      <wsdl:output message="tns:toTraditionalChineseHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TraditionalSimplifiedWebServiceHttpPost">
+    <wsdl:operation name="toSimplifiedChinese">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;br /&gt;&lt;h3&gt;繁体字转换为简体字&lt;/h3&gt;&lt;p&gt;输入参数：sText = 字符串； 返回数据：字符串。&lt;/p&gt;&lt;br /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:toSimplifiedChineseHttpPostIn" />
+      <wsdl:output message="tns:toSimplifiedChineseHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="toTraditionalChinese">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;br /&gt;&lt;h3&gt;简体字转换为繁体字&lt;/h3&gt;&lt;p&gt;输入参数：sText = 字符串； 返回数据：字符串。&lt;/p&gt;&lt;br /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:toTraditionalChineseHttpPostIn" />
+      <wsdl:output message="tns:toTraditionalChineseHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TraditionalSimplifiedWebServiceSoap" type="tns:TraditionalSimplifiedWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="toSimplifiedChinese">
+      <soap:operation soapAction="http://webxml.com.cn/toSimplifiedChinese" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="toTraditionalChinese">
+      <soap:operation soapAction="http://webxml.com.cn/toTraditionalChinese" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TraditionalSimplifiedWebServiceSoap12" type="tns:TraditionalSimplifiedWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="toSimplifiedChinese">
+      <soap12:operation soapAction="http://webxml.com.cn/toSimplifiedChinese" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="toTraditionalChinese">
+      <soap12:operation soapAction="http://webxml.com.cn/toTraditionalChinese" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TraditionalSimplifiedWebServiceHttpGet" type="tns:TraditionalSimplifiedWebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="toSimplifiedChinese">
+      <http:operation location="/toSimplifiedChinese" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="toTraditionalChinese">
+      <http:operation location="/toTraditionalChinese" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TraditionalSimplifiedWebServiceHttpPost" type="tns:TraditionalSimplifiedWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="toSimplifiedChinese">
+      <http:operation location="/toSimplifiedChinese" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="toTraditionalChinese">
+      <http:operation location="/toTraditionalChinese" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TraditionalSimplifiedWebService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;a href="http://www.webxml.com.cn/" target="_blank"&gt;WebXml.com.cn&lt;/a&gt; &lt;strong&gt;中文简体字&lt;-&gt;繁体字转换 WEB 服务&lt;/strong&gt;&lt;br /&gt;此中文简体字&lt;-&gt;繁体字转换Web Services请不要用于任何商业目的，若有需要请&lt;a href="http://www.webxml.com.cn/zh_cn/contact_us.aspx" target="_blank"&gt;联系我们&lt;/a&gt;，欢迎技术交流。 QQ：8409035&lt;br /&gt;&lt;strong&gt;使用本站 WEB 服务请注明或链接本站：http://www.webxml.com.cn/ 感谢大家的支持&lt;/strong&gt;！&lt;br /&gt;&lt;br /&gt;&amp;nbsp;</wsdl:documentation>
+    <wsdl:port name="TraditionalSimplifiedWebServiceSoap" binding="tns:TraditionalSimplifiedWebServiceSoap">
+      <soap:address location="http://webservice.webxml.com.cn/WebServices/TraditionalSimplifiedWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TraditionalSimplifiedWebServiceSoap12" binding="tns:TraditionalSimplifiedWebServiceSoap12">
+      <soap12:address location="http://webservice.webxml.com.cn/WebServices/TraditionalSimplifiedWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TraditionalSimplifiedWebServiceHttpGet" binding="tns:TraditionalSimplifiedWebServiceHttpGet">
+      <http:address location="http://webservice.webxml.com.cn/WebServices/TraditionalSimplifiedWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TraditionalSimplifiedWebServiceHttpPost" binding="tns:TraditionalSimplifiedWebServiceHttpPost">
+      <http:address location="http://webservice.webxml.com.cn/WebServices/TraditionalSimplifiedWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
