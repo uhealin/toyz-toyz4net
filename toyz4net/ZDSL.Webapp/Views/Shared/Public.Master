@@ -1,0 +1,213 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="ZDSL.Model.Data" %>
+<%@ Import Namespace="ZDSL.Model.Public" %>
+<%@ Import Namespace="ZDSL.Biz" %>
+<%@ Import Namespace="Toyz4net.Core.Util" %>
+<%@ Import Namespace="ZDSL.Webapp.Controllers" %>
+<%@ Import Namespace="ZDSL.Webapp.Controllers.Public" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head >
+     <% string basePath = WebUtil.GetWebRootPath();
+        MemberModel member = WebUtil.GetSessionAttr<MemberModel>(typeof(MemberModel).Name);
+        JsResultObject re = ViewData[typeof(JsResultObject).Name] as JsResultObject;
+        PublicBiz publicBiz=PublicBiz.GetInstant();
+         bool isDebug = BaseZdController.IsDebug();
+        string tagDescription = string.Format("<meta name=\"description\" content=\"{0}\" />", ObjectUtil.Parse(ViewData["pageDesc"] as string, ""));
+        string tagKeywords = string.Format("<meta name=\"keywords\" content=\"{0}\" />", ObjectUtil.Parse(ViewData["pageKeywords"] as string, ""));
+        IList<OuterLinkModel> outerLinks = PublicBiz.getOuterLinks();
+     %>
+         <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+        <%=tagDescription %>
+    <%=tagKeywords %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="中国商旅广州酒店网">
+    <meta name="Copyright" content="Copyright 2004-2005 中国商旅广州酒店网">
+    <meta property="wb:webmaster" content="53316ad5d9ae0778" />
+    <base id="base" href="<%=basePath %>" />
+     
+
+
+    
+    <link rel="stylesheet" type="text/css" href="<%= basePath  %>/js3rd/jquery-ui-1.8.16.custom/css/zdsl/jquery-ui-1.8.16.custom.css" />
+    <link rel="stylesheet" type="text/css" href="<%= basePath  %>/css/public.css" />
+    
+
+    <% if (isDebug)
+       { %>
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/jquery/jquery-1.6.2.min.js" ></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/jquery-ui-1.8.16.custom/js/jquery-ui-1.8.16.custom.min.js"></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/jquery-ui-1.8.16.custom/development-bundle/ui/i18n/jquery.ui.datepicker-zh-CN.js"></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/dateJs/date.js"></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/jquery.validform/js/Validform-min.js"></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/jquery-pager/jquery.pager.js"></script>
+    <script language="javascript" type="text/javascript"  src="<%= basePath  %>/js3rd/jquery.qtip-1.0.0-rc3/jquery.qtip-1.0.0-rc3.min.js"></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js/Toyz4js.plugin.CityPicker.js"></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js/Toyz4js.extends.jqueryui.js"></script>
+    
+    
+   <%}
+       else
+       { %>
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/public.js3rd.package.min.js" ></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js/public.package.min.js"></script>
+    <%} %>
+   <script language="javascript" type="text/javascript" src="<%= basePath  %>/js/ZDSL.public.js"></script>
+
+
+ <!--[if lt IE 7]>
+   <script  type="text/javascript">
+       $(document).ready(function() {
+
+       $("#divBrowserAlert").dialog({
+           modal:true
+           });
+
+       });
+   </script>
+      <link rel="stylesheet" type="text/css" href="<%= basePath  %>/css/public.fixie.css" />
+    <![endif]-->
+
+     <asp:ContentPlaceHolder ID="HeaderContent" runat="server" >
+     
+
+     
+     </asp:ContentPlaceHolder>
+     
+     
+     
+</head>
+<body>
+    
+    
+    
+	<div class="content">
+	    <div class="toolbar">
+	         <div  class="left">
+	            您好，欢迎来到中国商旅网！&nbsp;&nbsp; 
+	            <span id="spanLoginStaue"></span>&nbsp;&nbsp; 
+	            <span>用合作网站账号登录：
+	             <a  target="_blank"  title="用新浪微博账号登录"  href="<%=basePath %>/MemberAdmin/Reg/DoWeiboAuth" ><img src="<%=basePath %>/image/icon.weibo.png"  class="icon16" /></a>
+	             <a  target="_blank" title="用人人网账号登录"  href="<%=basePath %>/MemberAdmin/Reg/DoRenrenAuth" ><img src="<%=basePath %>/image/icon.renren.png"  class="icon16" /></a>
+	             <a target="_blank"  title="用开心网账号登录"  href="<%=basePath %>/MemberAdmin/Reg/DoKaixinAuth" ><img src="<%=basePath %>/image/icon.kaixin.png"  class="icon16" /></a>
+	             
+	             <a  target="_blank" title="用QQ号登录"  href="<%=basePath %>/MemberAdmin/Reg/DoQQAuth" ><img src="<%=basePath %>/image/icon.qq.png"  class="icon16" /></a>
+	             <a  target="_blank" title="用腾讯微博账号登录"  href="<%=basePath %>/MemberAdmin/Reg/DoTencentWeiboAuth" ><img src="<%=basePath %>/image/icon.tweibo.png"  class="icon16" /></a>
+	       
+	             
+	             
+	            </span>
+	         </div>
+	     
+	        <div  style=" float:right; text-align:right;">
+               <li style=" float:right; margin-left:10px">[<a href="<%=basePath %>/help.asp">帮助中心</a>]</li>
+		       <li style=" float:right; margin-left:10px">[<a class="pointer" onclick="doFav()">收藏本页</a>]</li>
+		   </div>
+	    </div>
+		<div class="header">
+		    <div class="left" >
+		      <a href="<%=basePath %>" title="中国商旅网"><img src="<%=basePath %>/image/51logo.jpg"  /></a>
+		    </div>
+		    <div class="right">
+		      <img src="<%=basePath %>/image/banner.index.jpg"  style=" width:720px" />
+		    </div>
+             
+             
+		</div>
+		
+		<div class="bar">
+			<ul id="ulNav">
+
+			    <li><a href="<%=HomeController.GetPathIndex() %>"  title="首页" accesskey="i">首页</a></li>
+				<li><a href="<%=HotelController.GetPathIndex() %>" title="酒店预定"  accesskey="i">酒店预定</a></li>
+				<li><a href="<%=BrandController.GetPathIndex()  %>" title="连锁品牌"  accesskey="i">连锁品牌</a></li>
+				<li><a href="<%=CommentController.GetPathIndex() %>" title="酒店点评"  accesskey="i">酒店点评</a></li>
+				<li><a href="<%=ExhiController.GetPathIndex() %>" title="展会信息"  accesskey="i">展会信息</a></li>
+				<li><a href="<%=NewsController.GetPathIndex() %>" title="新闻资讯"  accesskey="i">新闻资讯</a></li>
+
+
+	           
+	     </ul>
+
+			
+		</div>
+		<div  style=" height:23px; overflow:hidden;">
+		    <div class="left" style=" vertical-align:top; font-size:1.2em">酒店预定电话：<span style=" font-weight:bold; color:Red">020-61138986(10线) 85219620</span> &nbsp;
+		    <iframe width="180" height="22" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" frameborder="No" border="0" src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=230&height=24&uid=1505361073&style=3&btn=red&dpc=1"></iframe>
+	
+		    </div>
+		    <div class="right">
+		    				     <ul>
+
+		    	<li style=" float:right;margin-left:10px;"><a href="<%=basePath %>/MemberAdmin/Account/Edit">个人信息</a></li>
+		     	<li style=" float:right; margin-left:10px;"><a href="<%=basePath %>/MemberAdmin/Order/Index">我的订单</a></li>
+	           
+	            <li style=" float:right;margin-left:10px;"><a href="<%=basePath %>/MemberAdmin/Account/Index">我的帐户</a></li>
+	            
+             <li style=" float:right"></li>
+		      
+		      </ul>    
+		    </div>
+		     
+
+		</div>
+	
+		       <% if (re != null && !string.IsNullOrEmpty(re.msg))
+            { %>
+            <div class="ui-state-highlight ui-corner-all divAlertMsg"  style=" padding:2%; font-size:1.3em; font-weight:bold">
+             <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span> <%= re.msg %>
+            </div>
+		       <%} %>
+		<div id="mainContent">
+           <asp:ContentPlaceHolder ID="MainContent" runat="server" >
+           </asp:ContentPlaceHolder>
+        </div>
+		<div class="footer">
+   <div id="divOuterLinks">
+  <fieldset>
+    <legend><b>友情链接：</b></legend>
+      <ul>
+     <% foreach (OuterLinkModel outerLink in outerLinks)
+        { %>
+     <li><a href="<%=outerLink.href %>" title="<%=outerLink.title %>"  target="_blank"><%= outerLink.name %></a></li>
+     <%} %>
+  </ul>
+  </fieldset>
+
+</div>
+<div align="center" style=" clear:both">
+<a target="_top" href="/">酒店预定</a>
+热线(Tel)：86-20-61138986（10线） 85219620 传真(Fax)：020-85219619 客服信箱(Email)：
+<a href="mailto:020hotel@163.com">020hotel#163.com</a>
+(将#号改成@)&nbsp;
+<br>
+Copyright&copy;
+<a target="_top" href="http://www.gz020hotel.com">
+<b>广州酒店预订网</b>
+
+                </a>2003-2005.All Rights Reserved <a target="_blank" href="http://www.miibeian.gov.cn">
+                    粤ICP备08010822</a>
+                    
+                <br>
+                <img width="118" height="48" src="<%=basePath %>/image/icon.footer1.gif">
+                <img width="120" height="40" src="<%=basePath %>/image/icon.footer2.gif">
+                <img width="118" height="48" src="<%=basePath %>/image/icon.footer3.gif">
+            </div>
+            
+         
+            
+        </div>
+        <div id="divWaiting" style="height: 0.1px; text-align: left; overflow: hidden" title="数据加载中，请稍等....">
+            <img src="<%=basePath %>/image/waiting.gif" />
+        </div>
+        
+        <div id="divBrowserAlert" style="height: 0.1px; text-align: left; overflow: hidden" title="浏览器版本提醒">
+        您正在使用 Internet Explorer 8以下的浏览器，在本页面的显示效果可能有差异。建议您升级到 
+        <a href="http://www.microsoft.com/china/windows/internet-explorer/" target="_blank">Internet Explorer 8</a> 或以下浏览器： <a href="http://www.mozillaonline.com/">Firefox</a> / <a href="http://www.google.com/chrome/?hl=zh-CN">Chrome</a> / <a href="http://www.apple.com.cn/safari/">Safari</a> / <a href="http://www.operachina.com/">Opera</a>
+        </div>
+    </div>
+
+</body>
+</html>

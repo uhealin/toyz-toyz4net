@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="ZDSL.Webapp.Controllers" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head >
+    
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <% 
+        string basePath = Toyz4net.Core.Util.WebUtil.GetWebRootPath();
+       
+       bool isDebug =  BaseZdController.IsDebug() ;    
+     %>
+
+   
+    <link rel="stylesheet" type="text/css" href="<%= basePath  %>/js3rd/jquery-easyui-1.2.4/themes/gray/easyui.css" />
+     <link rel="stylesheet" type="text/css" href="<%= basePath  %>/js3rd/jquery-easyui-1.2.4/themes/icon.css" />
+  
+ 
+    
+    <link rel="stylesheet" type="text/css" href="<%= basePath  %>/css/admin.css" /> 
+    
+    <% if (isDebug)
+       { %>
+       <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/jquery/jquery-1.6.2.min.js" ></script>
+     <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/jquery-pageload/jquery.pageload.js" ></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/js3rd/jquery-easyui-1.2.4/jquery.easyui.min.js" ></script>  
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/js3rd/jquery-easyui-1.2.4/locale/easyui-lang-zh_CN.js" ></script>  
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/js3rd/jquery-easyui-datagridview/datagrid-defaultview.js" ></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/js3rd/jquery-easyui-datagridview/datagrid-groupview.js" ></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/js3rd/jquery-easyui-datagridview/datagrid-detailview.js" ></script>
+   <script language="javascript" type="text/javascript" src="<%= basePath %>/js3rd/jquery-easyui-portal/jquery.portal.js" ></script>
+   <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/dateJs/date.js" ></script>
+   
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/js/Toyz4js.core.js" ></script>  
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/js/Toyz4js.setting.js" ></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/js/Toyz4js.prototype.Array.js" ></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/js/Toyz4js.prototype.String.js" ></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/js/Toyz4js.extends.jquery.js" ></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/js/Toyz4js.extends.easyui.js" ></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/js/Toyz4js.plugin.CrudDatagrid.js" ></script>
+    
+    <%}
+       else
+       {%>
+       <script language="javascript" type="text/javascript" src="<%= basePath %>/js3rd/js3rd.package.js" ></script>
+       <script language="javascript" type="text/javascript" src="<%= basePath %>/js/Toyz4js.package.js" ></script>
+       
+    <%} %>
+       <script language="javascript" type="text/javascript" src="<%= basePath %>/cache/DictModel.js" ></script>
+       <script language="javascript" type="text/javascript" src="<%= basePath %>/cache/GeoModel.js" ></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath %>/cache/RoleModel.js" ></script>
+    <asp:ContentPlaceHolder ID="HeaderContent" runat="server" ></asp:ContentPlaceHolder>
+    
+</head>
+<body class="easyui-layout">
+    
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    
+</body>
+</html>

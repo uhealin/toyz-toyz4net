@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head >
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    
+    
+         <% string basePath = Toyz4net.Core.Util.WebUtil.GetWebRootPath();
+       bool isDebug = false ;    
+     %>
+    
+    <link rel="stylesheet" type="text/css" href="<%= basePath  %>/css/public.css" />
+    <link rel="stylesheet" type="text/css" href="<%= basePath  %>/js3rd/jquery-ui-1.8.16.custom/css/ui-lightness/jquery-ui-1.8.16.custom.css" />
+    <link rel="stylesheet" type="text/css" href="<%= basePath  %>/js3rd/jquery.validform/css/default.css" />
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/jquery/jquery-1.6.2.min.js" ></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/jquery-ui-1.8.16.custom/js/jquery-ui-1.8.16.custom.min.js"></script>
+    <script language="javascript" type="text/javascript" src="<%= basePath  %>/js3rd/jquery.validform/js/Validform-min.js"></script>
+
+
+     <script type="text/javascript">
+
+         $(document).ready(function() {
+
+             $("button").button();
+             $(".radios").buttonset();
+         });
+     
+     </script>
+</head>
+<body>
+    	<div class="content">
+		<div class="header">
+			<div class="top_info">
+				<div class="top_info_right">
+					<p><b>You are not Logged in!</b> <a href="#">Log in</a> to check your messages.<br />
+					Do you want to <a href="#">Log in</a> or <a href="#">register</a>?</p>
+				</div>		
+				<div class="top_info_left">
+					<p><b>28. March, 2006</b> - Tuesday<br />
+					Check todays <a href="#">hot topics</a> or <a href="#">new products</a></p>
+				</div>
+			</div>
+			<div class="logo">
+				<h1><a href="<%=basePath %>/Public/Home/Index" title="Centralized Internet Services"><span class="dark">捷达商旅</span></a></h1>
+			</div>
+		</div>
+		
+		<div class="bar">
+			<ul>
+				<li><a href="#" accesskey="i">酒店预定</a></li>
+				<li class="active">连锁品牌</li>
+				<li><a href="#" accesskey="m">Music</a></li>
+				<li><a href="#" accesskey="p">Pictures</a></li>
+				<li><a href="#" accesskey="s">Services</a></li>
+				<li><a href="#" accesskey="r">Products</a></li>
+			</ul>
+		</div>
+		
+	
+		<div id="mainContent">
+		    
+		    <div style=" width:30%;  float:left;">
+		        <ul>
+		           <li>帐号信息</li>
+		           <li>住客信息</li>
+		           <li>我的订单</li>
+		           <li>我的评论</li>
+		           <li>我的返还</li>
+		        </ul>
+		    </div>
+		    <div style=" width:69%; float:right;">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                   
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+		<div class="footer">
+			<p><a href="#">RSS Feed</a> | <a href="#">Contact</a> | <a href="#">Accessibility</a> | <a href="#">Products</a> | <a href="#">Disclaimer</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> and <a href="http://validator.w3.org/check?uri=referer">XHTML</a><br />
+			&copy; Copyright 2006 Internet Services, Design: Luka Cvrk - <a href="http://www.solucija.com/" title="What's your solution?">Solucija</a></p>
+		</div>
+    </div>
+    </div>
+</body>
+</html>
