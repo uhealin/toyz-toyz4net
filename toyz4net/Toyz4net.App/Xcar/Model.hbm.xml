@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+  
+  <class   name="Toyz4net.App.Xcar.CustomerModel, Toyz4net.App"   table="main.xcar_customer"    >
+    <id name="id" type="string" column="id"  ></id>
+  
+    <property name="name" column="name" type="string" ></property>
+    <property name="mobile" column="mobile" type="string" ></property>
+    <property name="city" column="city" type="string" ></property>
+    <property name="province" column="province" type="string" ></property>
+    <property name="drivecs" column="drive_cs" type="string" ></property>
+    <property name="buytime" column="buy_time" type="string" ></property>
+    <property name="shop" column="shop" type="string" ></property>
+    <property name="uploadInd" column="upload_ind" type="string" ></property>
+    <property name="uploadTime" column="upload_time" type="DateTime" ></property>
+    <property name="remark" column="remark" type="string" ></property>
+  </class>
+
+  <class   name="Toyz4net.App.Xcar.ShopModel, Toyz4net.App"   table="main.xcar_shop"    >
+    <id name="id" type="string" column="id"  ></id>
+    <property name="name" column="name" type="string" ></property>
+    <property name="address" column="address" type="string" ></property>
+    <property name="city" column="city" type="string" ></property>
+    <property name="province" column="province" type="string" ></property>
+    <property name="brand" column="brand" type="string" ></property>
+    <property name="bigRegion" column="big_region" type="string" ></property>
+    <property name="smallRegion" column="small_region" type="string" ></property>
+  </class>
+
+
+  <class   name="Toyz4net.App.Xcar.DictModel, Toyz4net.App"   table="main.xcar_dict"    >
+    <id name="id" type="int" column="id"  ></id>
+    <property name="text" column="text" type="string" ></property>
+    <property name="value" column="value" type="string" ></property>
+    <property name="type" column="type" type="string" ></property>
+  </class>
+</hibernate-mapping>
