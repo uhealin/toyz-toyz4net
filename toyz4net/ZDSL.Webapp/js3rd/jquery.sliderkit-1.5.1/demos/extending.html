@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Slider Kit > Extending the plugin</title>
+		<meta name="Keywords" content="photo gallery, carousel, external controls, pagination" />
+		<meta name="Description" content="Slider Kit jQuery slideshow plugin: external controls examples, sliding captions, extending" />
+		
+		<!-- Plugin scripts -->
+		<script type="text/javascript" src="../lib/js/jquery-1.3.min.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery.sliderkit.1.5.1.js"></script>
+		<!--<script type="text/javascript" src="../lib/js/jquery.sliderkit.1.5.1.pack.js"></script>-->
+		<script type="text/javascript" src="../lib/js/jquery.easing.1.3.min.js"></script>
+		<script type="text/javascript" src="../lib/js/jquery.mousewheel.min.js"></script>
+
+		<!-- Launch Slider Kit -->
+		<script type="text/javascript">
+			jQuery(window).load(function(){ //jQuery(window).load() must be used instead of jQuery(document).ready() because of Webkit compatibility
+				
+				/*---------------------------------
+				 * Photo gallery > Standard
+				 *---------------------------------*/
+				
+				// Launch the slider
+				jQuery(".photosgallery-std").sliderkit({
+					mousewheel:true,
+					shownavitems:5,
+					//navfx:"none",
+					panelbtnshover:true,
+					auto:false,
+					navscrollatend:true
+				});				
+				
+				// Get the sliderkit object data
+				var myGallery = $(".photosgallery-std").data("sliderkit");
+				
+				/**
+				 *	Extending > External pagination
+				 */
+				  
+				// Pagination block
+				var myPaginationTag = $("#sliderkit-pagination1");
+				var myPaginationStr = '';
+				var myPaginationCount = 0;
+
+				// Building the pagination tag
+				$("li", myGallery.navUL).each(function(){
+					myPaginationStr += '<li><a href="#" rel="'+myPaginationCount+'">'+ (myPaginationCount+1) +'</a></li>';
+					myPaginationCount++;
+				});
+				myPaginationTag.append('<ul>'+myPaginationStr+'</ul>');
+				
+				$("a", myPaginationTag).click(function(){
+					myGallery.changeWithId( $(this).attr("rel") );
+					return false;
+				});
+				
+				/**
+				 *	Extending > Play/Pause button
+				 */
+				$("#playbtn").click(function(){
+					if(myGallery.isPlaying!=null) myGallery.autoScrollStop();
+					else myGallery.autoScrollStart();
+					return false;
+				});
+				
+				/**
+				 *	Extending > Start slide button
+				 */
+				$("#startslide").click(
+					function(){
+						// Applies only once
+						if($(".sliderkit-panels-wrapper", myGallery.domObj).size() == 0){
+							// Set the transition effect to "sliding"
+							myGallery.options.panelfx = "sliding";
+							// The sliding effect requires a wrapper around the panels
+							myGallery._wrapPanels();
+							//Change easing							
+							myGallery.options.panelfxeasing = "easeInOutExpo";
+						}
+						
+						// Stops the click
+						return false;
+					}
+				);
+				
+				/*---------------------------------
+				 * Photo gallery > Captions
+				 *---------------------------------*/
+				
+				// Launch the slider
+				jQuery(".photosgallery-captions").sliderkit({
+					circular:false,
+					mousewheel:true,
+					keyboard:true,
+					shownavitems:4,
+					auto:false,
+					autospeed:3000,
+					fastchange:false
+				});
+				
+				// Get the sliderkit object data
+				var myGallery2 = $(".photosgallery-captions").data("sliderkit");
+				
+				/**
+				 *	Extending > Custom caption animation
+				 */
+				var txtbox = $(".sliderkit-panel-textbox", myGallery2.domObj);
+				var txtboxHeight = txtbox.css("height");
+				
+				// Before panel animation
+				myGallery2.options.panelfxbefore = function(){
+					var myTxtbox = $(".sliderkit-panel-textbox", myGallery2.currPanel).show();
+					myTxtbox.css({"bottom" : "-"+txtboxHeight });
+				};
+				// After panel animation
+				myGallery2.options.panelfxafter = function(){
+					var myTxtbox = $(".sliderkit-panel-textbox", myGallery2.currPanel);
+					$(".sliderkit-panel-textbox", myGallery2.currPanel).animate({bottom : "+=" + txtboxHeight}, 500);
+				};
+				
+				// Reload the first item
+				myGallery2.currPanel.removeClass( myGallery2.cssClassNames.cssActive );
+				myGallery2.changeWithId(0);
+				
+			});
+		</script>
+
+		<!-- Site styles -->
+		<link rel="stylesheet" type="text/css" href="../lib/css/sliderkit-site.css" media="screen, projection" />
+		
+		<!-- Plugin styles -->
+		<link rel="stylesheet" type="text/css" href="../lib/css/sliderkit-core.css" media="screen, projection" />
+		<link rel="stylesheet" type="text/css" href="../lib/css/sliderkit-demos.css" media="screen, projection" />
+		
+		<!-- Compatibility -->
+		
+		<!--[if IE 6]>
+			<link rel="stylesheet" type="text/css" href="../lib/css/sliderkit-demos-ie6.css" />
+		<![endif]-->
+		
+		<!--[if IE 7]>
+			<link rel="stylesheet" type="text/css" href="../lib/css/sliderkit-demos-ie7.css" />
+		<![endif]-->
+		
+		<!--[if IE 8]>
+			<link rel="stylesheet" type="text/css" href="../lib/css/sliderkit-demos-ie8.css" />
+		<![endif]-->
+
+	</head>
+	<body>
+		<div id="header">
+			<div id="header-wrapper">
+				<div id="header-title"><a href="../index.html" title="SliderKit Homepage">Slider Kit, sliding contents with jQuery.</a></div>
+				<div class="spacer"></div>
+			</div>
+		</div>
+		<div id="page" class="inner layout-1col">
+			<div id="content">
+				<h1 class="code-first">Extending <span class="code-sitename">Slider Kit</span></h1>
+				<p>You can sutomize your sliders adding external controls or even creating new features, like sliding captions for example.</p>
+				
+				<noscript><div class="noscript"><span class="code-sitename">Slider Kit</span> jQuery plugin requires Javascript activation.</div></noscript>
+
+				<h2>External controls</h2>
+				<p>Here is an external thumbnails navigation example.</p>
+				<br />
+
+				<!-- External pagination -->
+				<div id="sliderkit-pagination1" class="sliderkit-pagination">Go to: </div>
+	
+				<!-- Start photosgallery-std -->
+				<div class="sliderkit photosgallery-std">
+					<div class="sliderkit-nav">
+						<div class="sliderkit-nav-clip">
+							<ul>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-01.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-02.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-03.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-04.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-05.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-06.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-07.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-08.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-09.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-10.jpg" alt="[Alternative text]" /></a></li>
+							</ul>
+						</div>
+						<div class="sliderkit-btn sliderkit-nav-btn sliderkit-nav-prev"><a rel="nofollow" href="#" title="Scroll the carousel to the left"><span>Previous line</span></a></div>
+						<div class="sliderkit-btn sliderkit-nav-btn sliderkit-nav-next"><a rel="nofollow" href="#" title="Scroll the carousel to the right"><span>Next line</span></a></div>
+					</div>
+					<div class="sliderkit-panels">
+						<div class="sliderkit-btn sliderkit-go-btn sliderkit-go-prev"><a rel="nofollow" href="#" title="Previous"><span>Previous</span></a></div>
+						<div class="sliderkit-btn sliderkit-go-btn sliderkit-go-next"><a rel="nofollow" href="#" title="Next"><span>Next</span></a></div>
+
+						<div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="../lib/images/photos/sample-01.jpg" alt="[Alternative text]" /></a>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="../lib/images/photos/sample-02.jpg" alt="[Alternative text]" /></a>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="../lib/images/photos/sample-03.jpg" alt="[Alternative text]" /></a>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="../lib/images/photos/sample-04.jpg" alt="[Alternative text]" /></a>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="../lib/images/photos/sample-05.jpg" alt="[Alternative text]" /></a>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="../lib/images/photos/sample-06.jpg" alt="[Alternative text]" /></a>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="../lib/images/photos/sample-07.jpg" alt="[Alternative text]" /></a>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="../lib/images/photos/sample-08.jpg" alt="[Alternative text]" /></a>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="../lib/images/photos/sample-09.jpg" alt="[Alternative text]" /></a>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="../lib/images/photos/sample-10.jpg" alt="[Alternative text]" /></a>
+						</div>
+					</div>
+				</div>
+				<!-- // end of photosgallery-std -->
+				
+				<!-- Button using the API methods -->
+				<h3>External buttons examples:</h3>
+				<a href="#" id="playbtn">Play/Pause button</a> | <a href="#" id="startslide">Make the photos slide!</a>				
+				
+
+				<h2>Photos gallery with sliding captions</h2>
+				<p>Captions blocks slide up. Check the page source to get the code.</p>
+
+				<!-- Start photosgallery-captions -->
+				<div class="sliderkit photosgallery-captions">
+					<div class="sliderkit-nav">
+						<div class="sliderkit-nav-clip">
+							<ul>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-01.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-02.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-03.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-04.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-05.jpg" alt="[Alternative text]" /></a></li>
+								<li><a href="#" rel="nofollow" title="[link title]"><img src="../lib/images/photos/mini/sample-06.jpg" alt="[Alternative text]" /></a></li>
+							</ul>
+						</div>
+						<div class="sliderkit-btn sliderkit-nav-btn sliderkit-nav-prev"><a rel="nofollow" href="#" title="Previous line"><span>Previous line</span></a></div>
+						<div class="sliderkit-btn sliderkit-nav-btn sliderkit-nav-next"><a rel="nofollow" href="#" title="Next line"><span>Next line</span></a></div>
+						<div class="sliderkit-btn sliderkit-go-btn sliderkit-go-prev"><a rel="nofollow" href="#" title="Previous photo"><span>Previous photo</span></a></div>
+						<div class="sliderkit-btn sliderkit-go-btn sliderkit-go-next"><a rel="nofollow" href="#" title="Next photo"><span>Next photo</span></a></div>
+					</div>
+					<div class="sliderkit-panels">
+						<div class="sliderkit-btn sliderkit-go-btn sliderkit-go-prev"><a rel="nofollow" href="#" title="Previous"><span>Previous</span></a></div>
+						<div class="sliderkit-btn sliderkit-go-btn sliderkit-go-next"><a rel="nofollow" href="#" title="Next"><span>Next</span></a></div>
+
+						<div class="sliderkit-panel">
+							<a href="../lib/images/photos/sample-01.jpg" title="[title]"><img src="../lib/images/photos/sample-01.jpg" alt="[Alternative text]" /></a>
+							<div class="sliderkit-panel-textbox">
+								<div class="sliderkit-panel-text">
+									<h4>sample-02.jpg</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+								</div>
+								<div class="sliderkit-panel-overlay"></div>
+							</div>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="../lib/images/photos/sample-02.jpg" title="[title]"><img src="../lib/images/photos/sample-02.jpg" alt="[Alternative text]" /></a>
+							<div class="sliderkit-panel-textbox">
+								<div class="sliderkit-panel-text">
+									<h4>sample-02.jpg</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.</p>
+								</div>
+								<div class="sliderkit-panel-overlay"></div>
+							</div>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="../lib/images/photos/sample-03.jpg" title="[title]"><img src="../lib/images/photos/sample-03.jpg" alt="[Alternative text]" /></a>
+							<div class="sliderkit-panel-textbox">
+								<div class="sliderkit-panel-text">
+									<h4>sample-03.jpg</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+								</div>
+								<div class="sliderkit-panel-overlay"></div>
+							</div>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="../lib/images/photos/sample-04.jpg" title="[title]"><img src="../lib/images/photos/sample-04.jpg" alt="[Alternative text]" /></a>
+							<div class="sliderkit-panel-textbox">
+								<div class="sliderkit-panel-text">
+									<h4>sample-03.jpg</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
+								</div>
+								<div class="sliderkit-panel-overlay"></div>
+							</div>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="../lib/images/photos/sample-05.jpg" title="[title]"><img src="../lib/images/photos/sample-05.jpg" alt="[Alternative text]" /></a>
+							<div class="sliderkit-panel-textbox">
+								<div class="sliderkit-panel-text">
+									<h4>sample-05.jpg</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+								</div>
+								<div class="sliderkit-panel-overlay"></div>
+							</div>
+						</div>
+						<div class="sliderkit-panel">
+							<a href="../lib/images/photos/sample-06.jpg" title="[title]"><img src="../lib/images/photos/sample-06.jpg" alt="[Alternative text]" /></a>
+							<div class="sliderkit-panel-textbox">
+								<div class="sliderkit-panel-text">
+									<h4>sample-06.jpg</h4>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+								</div>
+								<div class="sliderkit-panel-overlay"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- // end of photosgallery-captions -->
+				
+				<div class="code-notes">
+					<h4>Notes</h4>
+					<p>The parameter <em class="code-setting">fastchange</em> is set to <span class="code-value">false</span> so the slider won't switch until the caption animation is finished.</p>
+				</div>
+
+			</div>
+			<div class="spacer"></div>
+		</div>
+	</body>
+</html>
