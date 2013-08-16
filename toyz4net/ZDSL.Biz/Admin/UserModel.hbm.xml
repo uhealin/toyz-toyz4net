@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+  <class name="ZDSL.Model.Admin.UserModel, ZDSL.Model" table="ZD_ADMIN_USER"   >
+    <id name="id" type="string" column="id" ></id>
+    <property name="pwd" column="pwd" type="String" length="150" />
+    <property name="name" column="name" type="String" length="150" />
+    <property name="roleFk" column="role_fk" type="String" length="150" />
+    <property name="email" column="email" type="String" length="50" />
+    <property name="status" column="status" type="String" length="3" />
+  </class>
+
+
+</hibernate-mapping>

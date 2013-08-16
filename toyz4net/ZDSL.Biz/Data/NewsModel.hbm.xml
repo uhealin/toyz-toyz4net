@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+<class name="ZDSL.Model.Data.NewsModel, ZDSL.Model" table="ZD_NEWS" >
+<id name="id" column="id" type="String"  />
+   
+<property name="title" column="title" type="String" length="500" />
+<property name="context" column="context" type="String" />
+<property name="deployDate" column="deploy_date" type="DateTime" />
+<property name="modifyDate" column="modify_date" type="DateTime" />
+<property name="deployerId" column="deployer_id" type="String" length="50" />
+<property name="type" column="type" type="String" length="50" />
+  <property column="status" name="status" type="string"  length="3" ></property>
+<property name="newsStatus" column="news_status" type="String" ></property>
+</class>
+
+
+  <class name="ZDSL.Model.Data.NewsRefHotelModel, ZDSL.Model" table="ZD_NEWS_REL_HOTEL" >
+    <id name="id" column="id" type="String"  />
+    <property name="hotelId" column="hotel_id" type="String" />
+    <property name="newsId" column="news_id" type="String" />
+    <property column="status" name="status" type="string"  length="3" ></property>
+  </class>
+  
+</hibernate-mapping>

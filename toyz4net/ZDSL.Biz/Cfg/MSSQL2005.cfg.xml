@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+This template was written to work with NHibernate.Test.
+Copy the template to your NHibernate.Test project folder and rename it in hibernate.cfg.xml and change it 
+for your own use before compile tests in VisualStudio.
+-->
+<!-- This is the System.Data.dll provider for SQL Server -->
+<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+	<session-factory name="NHibernate.Test" >
+    
+		<property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+    
+		<property name="connection.connection_string">
+      Data Source=localhost\SQLEXPRESS;Initial Catalog=ZDSLDB;Integrated Security=True
+    </property>
+    
+		
+    <property name="show_sql">false</property>
+		<property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
+		<property name="command_timeout">600</property>
+		<property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
+
+
+    <!--1.配置二级缓存提供程序-->
+    <property name="cache.provider_class">NHibernate.Cache.HashtableCacheProvider</property>
+    <!--2.显式启用二级缓存-->
+    <property name ="cache.use_second_level_cache">true</property>
+    <!--4.启动查询缓存(注:下一篇内容：http://lyj.cnblogs.com)-->
+    <property name="cache.use_query_cache">true</property>
+    
+
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Data.HotelModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Data.GeoModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Data.BrandModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Admin.DictModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Admin.MenuModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Cache.TableCountModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Data.OrderModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Data.CommentModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Data.ExhiModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Data.MemberModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Data.NewsModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Data.GuestModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Data.CreditCardModel.hbm.xml"/>
+    
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Admin.UserModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Admin.RoleModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Admin.ConfigModel.hbm.xml"/>
+
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Public.FrontPageModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Public.AdSiderModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Public.PageSeoModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Public.OuterLinkModel.hbm.xml"/>
+    <mapping assembly="ZDSL.Biz" resource="ZDSL.Biz.Proc.MSSQL2005.hbm.xml"/>
+	</session-factory>
+ 
+</hibernate-configuration>

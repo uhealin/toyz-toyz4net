@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+  
+<class name="ZDSL.Model.Cache.TableCountModel, ZDSL.Model" table="ZD_CACHE_TABLE_COUNT" >
+  <id name="id" column="id" type="String" length="50" />
+<property name="hotelAll" column="hotel_all" type="Int32" length="4" />
+<property name="hotelOk" column="hotel_ok" type="Int32" length="4" />
+<property name="hotelClosed" column="hotel_closed" type="Int32" length="4" />
+<property name="hotelDel" column="hotel_del" type="Int32" length="4" />
+
+<property name="geoAll" column="geo_all" type="Int32" length="4" />
+<property name="brandAll" column="brand_all" type="Int32" length="4" />
+<property name="userAll" column="user_all" type="Int32" length="4" />
+<property name="memberAll" column="member_all" type="Int32" length="4" />
+<property name="newsAll" column="news_all" type="Int32" length="4" />
+<property name="exhibitionAll" column="exhibition_all" type="Int32" length="4" />
+</class>
+
+
+  <class name="ZDSL.Model.Cache.OrderCountModel, ZDSL.Model" table="ZD_CACHE_ORDER_COUNT" >
+    <id name="id" column="id" type="string"></id>
+    <property name="allCount" column="all_count" type="Int32" length="4" />
+    <property name="newCount" column="new_count" type="Int32" length="4" />
+    <property name="failCount" column="fail_count" type="Int32" length="4" />
+    <property name="cancelCount" column="cancel_count" type="Int32" length="4" />
+    <property name="dealCount" column="deal_count" type="Int32" length="4" />
+    <property name="zdSuccessCount" column="zd_success_count" type="Int32" length="4" />
+    <property name="elongSuccessCount" column="elong_success_count" type="Int32" length="4" />
+    <property name="commentedCount" column="commented_count" type="Int32" length="4" />
+  </class>  
+  
+</hibernate-mapping>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+<class name="ZDSL.Model.Admin.RoleModel, ZDSL.Model" table="ZD_ADMIN_ROLE" >
+<id name="id" column="id" type="string"  length="50"></id>
+<property name="name" column="name" type="String" length="500" />
+<property name="status" column="status" type="String" length="3" />
+<property name="menuFkArray" column="menu_fk_array" type="String" />
+</class>
+
+</hibernate-mapping>

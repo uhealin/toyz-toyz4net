@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+  <class name="ZDSL.Model.Data.HotelModel,  ZDSL.Model" table="ZD_HOTEL"  >
+    <cache usage="read-write"/>
+    <id name="hotelId" type="string" column="hotel_id" ></id>
+    <property column="hotel_name" name="hotelName" type="string" ></property>
+    <property column="hotel_name_en" name="hotelNameEn" type="string" ></property>
+    <property column="isreserve" name="isreserve" type="string" ></property>
+    <property column="add_time" name="addTime" type="DateTime" ></property>
+    <property column="del_time" name="delTime" type="DateTime" ></property>
+    <property column="modify_time" name="modifyTime" type="DateTime" ></property>
+    <property column="status" name="status" type="string"  length="3" ></property>
+    <property column="rec_ind" name="recInd" type="string" length="1" ></property>
+    <property column="rec_level" name="recLevel" type="int" ></property>
+    <property column="month_booked_count" name="monthBookedCount" type="int" ></property>
+    <property column="week_booked_count" name="weekBookedCount" type="int" ></property>
+    <property column="good_comment_count" name="goodCommentCount" type="int" ></property>
+    <property column="bad_comment_count" name="badCommentCount" type="int" ></property>
+  </class>
+
+
+
+  <class name="ZDSL.Model.Data.HotelImageModel,  ZDSL.Model" table="ZD_HOTEL_IMAGE" >
+    <id name="imgUrl" type="string" column="img_url" ></id>
+    <property column="img_type" name="imgType" type="string" ></property>
+    <property column="title" name="title" type="string" ></property>
+    <property column="img_num" name="imgNum" type="Int32" ></property>
+    <property column="hotel_fk" name="hotelFk" type="string" ></property>
+    <property column="status" name="status" type="string"  length="3" ></property>
+    <property column="img_size_code" name="imgSizeCode" type="string" length="1"></property>
+  </class>
+
+
+  <class name="ZDSL.Model.Data.HotelRoomModel,  ZDSL.Model" table="ZD_HOTEL_ROOM" >
+    <id name="id" type="string" column="id" ></id>
+    <property column="room_type_id" name="roomTypeId" type="string" ></property>
+    <property column="room_name" name="roomName" type="string" ></property>
+    <property column="room_type_num" name="roomTypeNum" type="Int32" ></property>
+    <property column="area" name="area" type="Double"   ></property>
+    <property column="floor" name="floor" type="string" ></property>
+    <property column="has_broadnet" name="hasBroadnet" type="string" ></property>
+    <property column="broadnet_fee" name="broadnetFee" type="string" ></property>
+    <property column="bed_descp" name="bedDescription" type="string" ></property>
+    <property column="bed_type" name="bedType" type="string" ></property>
+    <property column="note" name="note" type="string" ></property>
+    <property column="hotel_fk" name="hotelFk" type="string" ></property>
+    <property column="status" name="status" type="string"  length="3" ></property>
+  </class>
+
+
+  <class name="ZDSL.Model.Data.HotelDetailModel,  ZDSL.Model" table="ZD_HOTEL_DETAIL">
+    <id name="id" column="id" type="string" ></id>
+    <property name="dateUpdated" column="updated_date" type="DateTime" />
+    <property name="name" column="name" type="String" length="500" />
+    <property name="address" column="address" type="String" length="500" />
+    <property name="zip" column="zip" type="String" length="500" />
+    <property name="category" column="category" type="Int32" length="2" />
+    <property name="typology" column="typology" type="String" length="50" />
+    <property name="roomNumber" column="room_number" type="Int32" length="4" />
+    <property name="availPolicy" column="avail_policy" type="String" length="1000" />
+    <property name="activationDate" column="activation_date" type="DateTime" />
+    <property name="usersRating" column="users_rating" type="Int32" length="1" />
+    <property name="elongRanking" column="elong_ranking" type="Int32" length="1" />
+    <property name="templateType" column="template_type" type="String" length="500" />
+    <property name="translations" column="translations" type="String" length="500" />
+    <property name="doublePriceMin" column="double_price_min" type="Double" />
+    <property name="doublePriceMax" column="double_price_max" type="Double" />
+    <property name="currency" column="currency" type="String" length="500" />
+    <property name="lat" column="lat" type="Double" />
+    <property name="lon" column="lon" type="Double" />
+    <property name="country" column="country" type="String" length="500" />
+    <property name="region" column="region" type="String" length="500" />
+    <property name="province" column="province" type="String" length="500" />
+    <property name="city" column="city" type="String" length="500" />
+    <property name="businessZone" column="business_zone" type="String" length="500" />
+    <property name="district" column="district" type="String" length="500" />
+    <property name="propertyUrl" column="property_url" type="String" length="500" />
+    <property name="introEditor" column="intro_editor" type="String" />
+    <property name="ccAccepted" column="cc_accepted" type="String" length="500" />
+    <property name="description" column="description" type="String" />
+    <property name="phone" column="phone" type="String" length="500" />
+    <property name="fax" column="fax" type="String" length="500" />
+    <property name="openingDate" column="opening_date" type="DateTime" />
+    <property name="renovationDate" column="renovation_date" type="DateTime" />
+    <property name="star" column="star" type="Int32" length="1" />
+    <property name="brandId" column="brand_id" type="String" length="500" />
+    <property name="iseconomic" column="iseconomic" type="String" length="1" />
+    <property name="isapartment" column="isapartment" type="String" length="1" />
+    <property column="status" name="status" type="string"  length="3" ></property>
+    <property name="imgUrl" column="img_url" type="String"  />
+    <property name="trafficOverview" column="traffic_overview" type="String"  />
+    <property name="trafficGuide" column="traffic_guide" type="String"  />
+    <property name="generalOverview" column="general_overview" type="String"  />
+    <property name="roomOverview" column="room_overview" type="String"  />
+    <property name="recreationOverview" column="recreation_overview" type="String"  />
+    <property name="conferenceOverview" column="conference_overview" type="String"  />
+    <property name="dinnerOverview" column="dinner_overview" type="String"  />
+    <property name="generalArray" column="general_array" type="String"  />
+    <property name="roomArray" column="room_array" type="String"  />
+    <property name="recreationArray" column="recreation_array" type="String"  />
+    <property name="conferenceArray" column="conference_array" type="String"  />
+    <property name="dinnerArray" column="dinner_array" type="String"  />
+
+  </class>
+
+
+
+
+  <class name="ZDSL.Model.Data.HotelRecommendModel,  ZDSL.Model" table="ZD_HOTEL_RECOMMEND" >
+    <id name="hotelId" type="string" column="hotel_id" ></id>
+    <property name="hotelName" type="string" column="hotel_name" />
+    <property column="priority_level" name="priorityLevel" type="Int32" ></property>
+    <property column="remark" name="remark" type="string" ></property>
+
+  </class>
+
+
+
+  <class name="ZDSL.Model.Data.HotelFeatrueInfoModel, ZDSL.Model" table="ZD_HOTEL_FEATURE_INFO" >
+    <id name="hotelId" column="hotel_id" type="string"></id>
+    <property name="drivingGuide" column="driving_guide" type="String" />
+    <property name="propertyOtherHightlights" column="property_other_hightlights" type="String" />
+    <property name="propertyAmenitiesHightlights" column="property_amenities_hightlights" type="String" />
+    <property name="locationHighlights" column="location_highlights" type="String" />
+    <property name="overview" column="overview" type="String" />
+  </class>
+
+
+  <class name="ZDSL.Model.Data.HotelLandMarkModel, ZDSL.Model" table="ZD_HOTEL_LANDMARK" entity-name="HotelLandMark" >
+    <id name="id" column="id" type="string"  ></id>
+    <property name="hotelFk" column="hotel_fk" type="String" length="50" />
+    <property name="landmarkId" column="landmark_id" type="String" length="50" />
+    <property name="landmarkName" column="landmark_name" type="String" length="50" />
+    <property name="landmarkNameEn" column="landmark_name_en" type="String" length="50" />
+  </class>
+
+
+  <class name="ZDSL.Model.Data.HotelSurroundingAttractionModel, ZDSL.Model" table="ZD_HOTEL_SURROUNDING_ATTRACTION" >
+    <id name="id" column="id"  type="string" ></id>
+    <property name="hotelFk" column="hotel_fk" type="String" length="50" />
+    <property name="name" column="name" type="String" length="50" />
+    <property name="distances" column="distances" type="float" />
+  </class>
+
+
+  <class name="ZDSL.Model.Data.HotelSurroundingCommerceModel, ZDSL.Model" table="ZD_HOTEL_SURROUNDING_COMMERCE" >
+    <id name="id" column="id" type="string"  />
+    <property name="distances" column="distances" type="float" />
+    <property name="name" column="name" type="String" length="200" />
+    <property name="note" column="note" type="String" length="500" />
+    <property name="timeTaking" column="time_taking" type="Int32" length="4" />
+    <property name="transportFee" column="transport_fee" type="float" />
+    <property name="transportationsFk" column="transportations_fk" type="String" length="50" />
+    <property name="hotelFk" column="hotel_fk" type="String" length="50" />
+  </class>
+
+
+  <class name="ZDSL.Model.Data.HotelSurroundingRestaurantModel, ZDSL.Model" table="ZD_HOTEL_SURROUNDING_RESTAURANT" >
+    <id name="id" column="id" type="string"></id>
+    <property name="hotelFk" column="hotel_fk" type="String" length="50" />
+    <property name="name" column="name" type="String" length="500" />
+    <property name="descp" column="descp" type="String" length="1000" />
+    <property name="distances" column="distances" type="float" />
+  </class>
+
+  <class name="ZDSL.Model.Data.HotelSurroundingShopModel, ZDSL.Model" table="ZD_HOTEL_SURROUNDING_SHOP" >
+    <id name="id" column="id" type="string" />
+    <property name="hotelFk" column="hotel_fk" type="String" length="50" />
+    <property name="descp" column="descp" type="String" length="1000" />
+    <property name="distances" column="distances" type="float" />
+    <property name="name" column="name" type="String" length="50" />
+  </class>
+
+  <class name="ZDSL.Model.Data.HotelTrafficInfoModel, ZDSL.Model" table="ZD_HOTEL_TRAFFIC_INFO" >
+    <id name="id" column="id" type="string" ></id>
+    <property name="hotelFk" column="hotel_fk" type="String" length="50" />
+    <property name="distances" column="distances" type="float" />
+    <property name="name" column="name" type="String" length="500" />
+    <property name="note" column="note" type="String" />
+    <property name="timeTaking" column="time_taking" type="Int32"  />
+    <property name="transportFee" column="transport_fee" type="float" />
+    <property name="transportationsFk" column="transportations_fk" type="String" length="50" />
+  </class>
+  
+  
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+  <class name="ZDSL.Model.Admin.DictModel, ZDSL.Model" table="ZD_ADMIN_DICT"   >
+    <id name="id" type="string" column="id" ></id>
+    <property name="text" column="text" type="string" ></property>
+    <property name="value" column="value" type="string" ></property>
+    <property name="type" column="type" type="string" ></property>
+    <property column="status" name="status" type="string"  length="3" ></property>
+
+
+  </class>
+
+
+  <class name="ZDSL.Model.Admin.DictTypeModel, ZDSL.Model" table="ZD_ADMIN_DICT_TYPE"   >
+    <id name="id" type="string" column="id" ></id>
+    <property name="name" column="name" type="string" ></property>
+    <property column="status" name="status" type="string"  length="3" ></property>
+
+  </class>
+  
+  
+</hibernate-mapping>

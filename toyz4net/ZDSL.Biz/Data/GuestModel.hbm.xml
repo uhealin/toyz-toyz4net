@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+  
+<class name="ZDSL.Model.Data.GuestModel, ZDSL.Model" table="ZD_GUEST" >
+  <id name="id" column="id" type="String" length="18" />
+<property name="idNumber" column="id_number" type="String" length="18" />
+<property name="idTypeCode" column="id_type_code" type="String" length="2" />
+<property name="genderCode" column="gender_code" type="String"  />
+<property name="email" column="email" type="String" length="150" />
+<property name="mobile" column="mobile" type="String" length="18" />
+<property name="nationality" column="nationality" type="String" length="50" />
+<property name="phoneInterCode" column="phone_inter_code" type="Int32" length="10" />
+<property name="phoneAreaCode" column="phone_area_code" type="Int32" length="10" />
+<property name="phoneNumber" column="phone_number" type="Int32" length="20" />
+<property name="phoneExt" column="phone_ext" type="Int32" length="50" />
+<property name="faxInterCode" column="fax_inter_code" type="Int32" length="10" />
+<property name="faxAreaCode" column="fax_area_code" type="Int32" length="10" />
+<property name="faxNumber" column="fax_number" type="Int32" length="20" />
+<property name="faxExt" column="fax_ext" type="Int32" length="10" />
+<property name="parameterString1" column="parameter_string_1" type="String" length="500" />
+<property name="parameterString2" column="parameter_string_2" type="String" length="500" />
+<property name="parameterString3" column="parameter_string_3" type="String" length="500" />
+<property name="parameterInt1" column="parameter_int_1" type="Int32" length="4" />
+<property name="parameterInt2" column="parameter_int_2" type="Int32" length="4" />
+<property name="parameterInt3" column="parameter_int_3" type="Int32" length="4" />
+<property name="nameCn" column="name_cn" type="string"></property>
+<property name="nameEn" column="name_en" type="string"></property>
+  <property column="status" name="status" type="string"  length="3" ></property>
+  <property column="type" name="type" type="string"   ></property>
+</class>
+
+</hibernate-mapping>

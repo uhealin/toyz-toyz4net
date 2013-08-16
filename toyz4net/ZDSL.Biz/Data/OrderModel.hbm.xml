@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+  <class name="ZDSL.Model.Data.OrderModel,  ZDSL.Model" table="ZD_ORDER" >
+    <id name="id" type="Int32" column="id" >
+      <generator class="identity"></generator>
+    </id>
+    <property column="elong_order_id" name="elongOrderId" type="Int32" ></property>
+    <property column="hotel_id" name="hotelId" type="string" ></property>
+    <property column="room_type_id" name="roomTypeId" type="string" ></property>
+    <property column="rate_plan_id" name="ratePlanId" type="Int32" ></property>
+    <property column="rate_plan_code" name="ratePlanCode" type="string" ></property>
+    <property column="check_in_date" name="checkInDate" type="DateTime" ></property>
+    <property column="check_out_date" name="checkOutDate" type="DateTime" ></property>
+    <property column="elong_cardNo" name="elongCardNo" type="string" ></property>
+    <property column="guest_type_code" name="guestTypeCode" type="string" ></property>
+    <property column="room_amount" name="roomAmount" type="Int32" ></property>
+    <property column="guest_amount" name="guestAmount" type="Int32" ></property>
+    <property column="payment_type_code" name="paymentTypeCode" type="string" ></property>
+    <property column="arraival_earlytime" name="arraivalEarlyTime" type="DateTime" ></property>
+    <property column="arraival_latetime" name="arraivalLateTime" type="DateTime" ></property>
+    <property column="currency_code" name="currencyCode" type="string" ></property>
+    <property column="total_price" name="totalPrice" type="float" ></property>
+    <property column="confirm_type_code" name="confirmTypeCode" type="string" ></property>
+    <property column="confirm_language_code" name="confirmLanguageCode" type="string" ></property>
+    <property column="note_to_hotel" name="noteToHotel" type="string" ></property>
+    <property column="note_to_elong" name="noteToElong" type="string" ></property>
+    <property column="creditcard_number" name="creditCardNumber" type="string" ></property>
+    <property column="creditcard_veryfycode" name="creditCardVeryfyCode" type="string" ></property>
+    <property column="creditcard_validyear" name="creditCardValidyear" type="string" ></property>
+    <property column="creditcard_validmonth" name="creditCardValidmonth" type="string" ></property>
+    <property column="creditcard_cardholdername" name="creditCardcardHolderName" type="string" ></property>
+    <property column="creditcard_idtypecode" name="creditCardIdTypeCode" type="string" ></property>
+    <property column="creditcard_idnumber" name="creditCardIdNumber" type="string" ></property>
+    <property column="parameter_string1" name="parameterString1" type="string" ></property>
+    <property column="parameter_string2" name="parameterString2" type="string" ></property>
+    <property column="parameter_string3" name="parameterString3" type="string" ></property>
+    <property column="parameter_int1" name="parameterInt1" type="string" ></property>
+    <property column="parameter_int2" name="parameterInt2" type="string" ></property>
+    <property column="parameter_int3" name="parameterInt3" type="string" ></property>
+
+    <property column="guests_id_array" name="guestsIdArray" type="string" ></property>
+    <property column="contacter_id_array" name="contacterIdArray" type="string" ></property>
+    <property column="status" name="status" type="string"  length="3" ></property>
+    <property column="elong_status" name="elongStatus" type="string" ></property>
+    <property column="order_status" name="orderStatus" type="string" ></property>
+
+    <property column="create_date" name="createDate" type="DateTime"></property>
+    <property column="last_modify_date" name="lastModifyDate" type="DateTime"></property>
+    <property column="member_fk" name="memberFk" type="string"></property>
+    <property column="user_fk" name="userFk" type="string"></property>
+    <property column="hotel_name" name="hotelName" type="string"></property>
+    <property name="email" column="email" type="String" length="150" />
+    <property name="mobile" column="mobile" type="String" length="18" />
+    <property column="guests_name_array" name="guestsNameArray" type="string"></property>
+    <property column="guests_gender_array" name="guestsGenderArray" type="string"></property>
+    <property column="contacter_name" name="contacterName" type="string"></property>
+    <property column="remark" name="remark" type="string"></property>
+    <property column="room_name" name="roomName" type="string" ></property>
+    <property column="rate_plan_name" name="ratePlanName" type="string" ></property>
+  </class>
+
+
+
+
+  <class name="ZDSL.Model.Data.OrderCommentRewardModel, ZDSL.Model" table="ZD_ORDER_COMMENT_REWARD" >
+    <id name="id" column="id" type="String" length="50" />
+    <property name="comFk" column="com_fk" type="String" length="50" />
+    <property name="createDate" column="create_date" type="DateTime" />
+    <property name="memberFk" column="member_fk" type="String" length="50" />
+    <property name="rebateStatuts" column="rebate_statuts" type="String" length="50" />
+    <property name="status" column="status" type="String" length="3" />
+    <property name="amount" column="amount" type="float" />
+    <property name="rebateMethod" column="rebate_method" type="String" length="50" />
+    <property name="remark" column="remark" type="String" length="500" />
+    <property name="userFk" column="user_fk" type="String" length="50" />
+  </class>
+
+
+</hibernate-mapping>

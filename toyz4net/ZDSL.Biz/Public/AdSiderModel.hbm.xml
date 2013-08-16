@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+<class name="ZDSL.Model.Public.AdSiderModel, ZDSL.Model" table="ZD_PUBLIC_AD_SIDER" >
+<id name="id" column="id" type="string"  >
+</id>
+<property name="src" column="src" type="String" length="50" />
+<property name="alt" column="alt" type="String" length="500" />
+<property name="title" column="title" type="String" length="500" />
+  <property name="href" column="href" type="String" length="500" />
+<property name="recLevel" column="rec_level" type="Int32" length="4" />
+</class>
+
+</hibernate-mapping>

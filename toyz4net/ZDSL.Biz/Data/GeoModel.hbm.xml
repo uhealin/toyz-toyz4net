@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+  <class name="ZDSL.Model.Data.GeoModel, ZDSL.Model" table="ZD_GEO"   >
+    <id name="id" type="string" column="id" ></id>
+    <property name="country" column="country" type="string" ></property>
+    <property name="provinceName" column="province_name" type="string" ></property>
+    <property name="provinceId" column="province_id" type="string" ></property>
+    <property name="cityName" column="city_name" type="string" ></property>
+    <property name="cityCode" column="city_code" type="string" ></property>
+    <property name="properties" column="properties" type="Int32" ></property>
+    <property name="url" column="url" type="string" ></property>
+    <property column="status" name="status" type="string"  length="3" ></property>
+    <property name="seoKeyword" column="seo_keyword" type="string" ></property>
+    <property name="recInd" column="rec_ind" type="string" ></property>
+    <property name="recLevel" column="rec_level" type="int" ></property>
+  </class>
+
+
+
+  <class name="ZDSL.Model.Data.GeoCommercialLocationModel, ZDSL.Model" table="ZD_GEO_COMMERICIAL_LOCATION"   >
+    <id name="id" type="string" column="id" ></id>
+    <property name="name" column="name" type="string" ></property>
+    <property name="geoFk" column="geo_fk" type="string" ></property>
+    <property name="locationId" column="location_id" type="string" ></property>
+    <property column="status" name="status" type="string"  length="3" ></property>
+  </class>
+
+
+  <class name="ZDSL.Model.Data.GeoDistrictsModel, ZDSL.Model" table="ZD_GEO_DISTRICT"   >
+    <id name="id" type="string" column="id" ></id>
+    <property name="name" column="name" type="string" ></property>
+    <property name="geoFk" column="geo_fk" type="string" ></property>
+    <property name="locationId" column="location_id" type="string" ></property>
+    <property column="status" name="status" type="string"  length="3" ></property>
+  </class>
+
+
+  <class name="ZDSL.Model.Data.GeoLandmarkLocationModel, ZDSL.Model" table="ZD_GEO_LANDMARK_LOCATION"   >
+    <id name="id" type="string" column="id" ></id>
+    <property name="name" column="name" type="string" ></property>
+    <property name="geoFk" column="geo_fk" type="string" ></property>
+    <property name="locationId" column="location_id" type="string" ></property>
+    <property column="status" name="status" type="string"  length="3" ></property>
+  </class>
+
+</hibernate-mapping>

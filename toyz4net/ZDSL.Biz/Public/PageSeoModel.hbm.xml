@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+<class name="ZDSL.Model.Public.PageSeoModel, ZDSL.Model" table="ZD_PUBLIC_PAGE_SEO" >
+<id name="id" column="id" type="String"  />
+  <property name="homeIndexTitle" column="home_index_title" type="String" length="3000" />
+  <property name="homeIndexDesc" column="home_index_desc" type="String" length="3000" />
+  <property name="homeIndexKeywords" column="home_index_keywords" type="String" length="3000" />
+  <property name="hotelIndexTitle" column="hotel_index_title" type="String" length="3000" />
+  <property name="hotelIndexDesc" column="hotel_index_desc" type="String" length="3000" />
+  <property name="hotelIndexKeywords" column="hotel_index_keywords" type="String" length="3000" />
+  <property name="hotelDetailTitle" column="hotel_detail_title" type="String" length="3000" />
+  <property name="hotelDetailDesc" column="hotel_detail_desc" type="String" length="3000" />
+  <property name="hotelDetailKeywords" column="hotel_detail_keywords" type="String" length="3000" />
+  <property name="brandIndexTitle" column="brand_index_title" type="String" length="3000" />
+  <property name="brandIndexDesc" column="brand_index_desc" type="String" length="3000" />
+  <property name="brandIndexKeywords" column="brand_index_keywords" type="String" length="3000" />
+  <property name="brandHotelTitle" column="brand_hotel_title" type="String" length="3000" />
+  <property name="brandHotelDesc" column="brand_hotel_desc" type="String" length="3000" />
+  <property name="brandHotelKeywords" column="brand_hotel_keywords" type="String" length="3000" />
+  <property name="newsIndexTitle" column="news_index_title" type="String" length="3000" />
+  <property name="newsIndexDesc" column="news_index_desc" type="String" length="3000" />
+  <property name="newsIndexKeywords" column="news_index_keywords" type="String" length="3000" />
+  <property name="newsHotelTitle" column="news_hotel_title" type="String" length="3000" />
+  <property name="newsHotelDesc" column="news_hotel_desc" type="String" length="3000" />
+  <property name="newsHotelKeywords" column="news_hotel_keywords" type="String" length="3000" />
+  <property name="exhiIndexTitle" column="exhi_index_title" type="String" length="3000" />
+  <property name="exhiIndexDesc" column="exhi_index_desc" type="String" length="3000" />
+  <property name="exhiIndexKeywords" column="exhi_index_keywords" type="String" length="3000" />
+  <property name="exhiHotelTitle" column="exhi_hotel_title" type="String" length="3000" />
+  <property name="exhiHotelDesc" column="exhi_hotel_desc" type="String" length="3000" />
+  <property name="exhiHotelKeywords" column="exhi_hotel_keywords" type="String" length="3000" />
+  <property name="cityTitle" column="city_title" type="String" length="3000" />
+  <property name="cityDesc" column="city_desc" type="String" length="3000" />
+  <property name="cityKeywords" column="city_keywords" type="String" length="3000" />
+  <property name="cityDTitle" column="city_d_title" type="String" length="3000" />
+  <property name="cityDDesc" column="city_d_desc" type="String" length="3000" />
+  <property name="cityDKeywords" column="city_d_keywords" type="String" length="3000" />
+  <property name="cityClTitle" column="city_cl_title" type="String" length="3000" />
+  <property name="cityClDesc" column="city_cl_desc" type="String" length="3000" />
+  <property name="cityClKeywords" column="city_cl_keywords" type="String" length="3000" />
+  <property name="hotelSearchTitle" column="hotel_search_title" type="String" length="3000" />
+  <property name="hotelSearchDesc" column="hotel_search_desc" type="String" length="3000" />
+  <property name="hotelSearchKeywords" column="hotel_search_keywords" type="String" length="3000" />
+  <property name="commentIndexTitle" column="comment_index_title" type="String" length="3000" />
+  <property name="commentIndexDesc" column="comment_index_desc" type="String" length="3000" />
+  <property name="commentIndexKeywords" column="comment_index_keywords" type="String" length="3000" />
+</class>
+
+</hibernate-mapping>

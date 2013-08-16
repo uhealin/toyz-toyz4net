@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+<class name="ZDSL.Model.Public.FrontPageModel, ZDSL.Model" table="ZD_PUBLIC_FRONT_PAGE" >
+<id name="id" column="id" type="String"  />
+<property name="hotelHotCityNameArray" column="hotel_hot_city_name_array" type="String" length="1000" />
+<property name="homeHotCityNameArray" column="home_hot_city_name_array" type="String" length="1000" />
+  <property name="homeHotBrandNameArray" column="home_hot_brand_name_array" type="String" length="1000" />
+<property name="searchBrandNameArray" column="search_brand_name_array" type="String" length="1000" />
+</class>
+
+</hibernate-mapping>

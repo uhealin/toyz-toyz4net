@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+<class name="ZDSL.Model.Data.MemberModel, ZDSL.Model" table="ZD_MEMBER"  >
+  
+    <id name="id" column="id" type="String" length="50" />
+    <property name="pwd" column="pwd" type="String" length="20" />
+    <property name="nickName" column="nick_name" type="String" length="50" />
+  <property name="realName" column="real_name" type="String" length="50" />
+    <property name="status" column="status" type="String" length="3" />
+    <property name="guestFk" column="guest_fk" type="String" length="50" />
+    <property name="moblie" column="moblie" type="String" length="20" />
+  <property name="rebateMoblie" column="rebate_moblie" type="String"  />
+  <property name="weiboUid" column="weibo_uid" type="string"  />
+  <property name="qqUid" column="qq_uid" type="string"  />
+  <property name="kaixinUid" column="kaixin_uid" type="string"  />
+  <property name="renrenUid" column="renren_uid" type="string"  />
+  <property name="tencentWeiboUid" column="tencent_weibo_uid" type="string"  />
+  <property name="email" column="email" type="String" length="500" />
+  <property name="totalAmount" column="total_amount" type="Int32"></property>
+  <property name="exchangeStatus" column="exchange_status" type="string"></property>
+  <property name="rebateInd" column="rebate_ind" type="string"></property>
+</class>
+
+
+
+  <class name="ZDSL.Model.Data.MemberRewardModel, ZDSL.Model" table="ZD_MEMBER_REWARD" >
+    <id name="id" column="id" type="String" length="50" />
+    <property name="comFk" column="com_fk" type="String" length="50" />
+    <property name="createDate" column="create_date" type="DateTime" />
+    <property name="memberFk" column="member_fk" type="String" length="50" />
+    <property name="rebateStatus" column="rebate_status" type="String" length="50" />
+    <property name="status" column="status" type="String" length="3" />
+    <property name="amount" column="amount" type="float" />
+    <property name="rebateMethod" column="rebate_method" type="String" length="50" />
+    <property name="remark" column="remark" type="String" length="500" />
+    <property name="userFk" column="user_fk" type="String" length="50" />
+    <property name="busType" column="bus_type" type="String"  />
+  </class>
+
+  <class name="ZDSL.Model.Data.MemberRewardRuleModel, ZDSL.Model" table="ZD_MEMBER_REWARD_RULE" >
+    <id name="id" column="id" type="string"  length="50" ></id>
+    <property name="rebateValidityMonths" column="rebate_validity_months" type="Int32"  />
+    <property name="rebateScale" column="rebate_scale" type="double" />
+    <property name="rebateAmount" column="rebate_amount" type="Int32" />
+    <property name="rebateScaleAmount" column="rebate_scale_amount" type="Int32" />
+    <property name="comValidityDays" column="com_validity_days" type="Int32"  />
+    <property name="rebateLimit" column="rebate_limit" type="Int32" />
+    <property name="status" column="status" type="String" length="3" />
+    <property name="name" column="name" type="String" length="50" />
+  </class>
+
+
+
+  <class name="ZDSL.Model.Data.MemberRewardLogModel, ZDSL.Model" table="ZD_MEMBER_REWARD_LOG" >
+    <id name="id" column="id" type="string" >
+    </id>
+    <property name="method" column="method" type="String" length="50" />
+    <property name="memberFk" column="member_fk" type="String" length="50" />
+    <property name="createDate" column="create_date" type="DateTime" />
+    <property name="remark" column="remark" type="String" length="50" />
+    <property name="moblie" column="moblie" type="String" length="50" />
+    <property name="bank" column="bank" type="String" length="150" />
+    <property name="exchangeStatus" column="exchange_status" type="String" length="50" />
+    <property name="userFk" column="user_fk" type="String" length="50" />
+    <property name="rewardFkArrays" column="reward_fk_arrays" type="String" length="500" />
+    <property name="amount" column="amount" type="Int32" length="4" />
+  </class>
+
+
+  <class name="ZDSL.Model.Data.MemberAccountModel, ZDSL.Model" table="ZD_MEMBER_ACCOUNT" >
+    <id name="id" column="id" type="String" length="50" />
+    <property name="memberFk" column="member_fk" type="String" length="50" />
+    <property name="oldAmount" column="old_amount" type="int" />
+    <property name="newAmount" column="new_amount" type="int" />
+    <property name="changeAmount" column="change_amount" type="int" />
+    <property name="createDate" column="create_date" type="DateTime" />
+    <property name="remark" column="remark" type="String" length="500" />
+    <property name="method" column="method" type="String" length="50" />
+    <property name="orderFk" column="order_fk" type="Int32" length="4" />
+    <property name="userFk" column="user_fk" type="String" length="50" />
+  </class>
+  
+
+</hibernate-mapping>

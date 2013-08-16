@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+<class name="ZDSL.Model.Data.ExhiModel, ZDSL.Model" table="ZD_EXHI" >
+<id name="id" column="id" type="String"  />
+
+<property name="name" column="name" type="String" length="500" />
+<property name="geoFk" column="geo_fk" type="String" length="50" />
+<property name="msg" column="msg" type="String" />
+<property name="startDate" column="start_date" type="DateTime" />
+<property name="endDate" column="end_date" type="DateTime" />
+  <property column="status" name="status" type="string"  length="3" ></property>
+  <property name="exhiStatus" column="exhi_status" type="string" />
+  <property name="hotelIdArray" column="hotel_id_array" type="String" ></property>
+  <property name="address" column="address" type="String" ></property>
+  <property name="busName" column="bus_name" type="String" ></property>
+  <property name="siteName" column="site_name" type="String" ></property>
+</class>
+
+  <class name="ZDSL.Model.Data.ExhiRefHotelModel, ZDSL.Model" table="ZD_EXHI_REL_HOTEL" >
+    <id name="id" column="id" type="String"  />
+    <property name="hotelId" column="hotel_id" type="String" />
+    <property name="exhiId" column="exhi_id" type="String" />
+    <property column="status" name="status" type="string"  length="3" ></property>
+  </class>
+
+</hibernate-mapping>

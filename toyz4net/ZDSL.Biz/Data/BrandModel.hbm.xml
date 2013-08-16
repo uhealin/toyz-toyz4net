@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+  <class name="ZDSL.Model.Data.BrandModel, ZDSL.Model" table="ZD_BRAND"   >
+    <id name="brandID" type="string" column="brand_id" ></id>
+    <property name="groupID" column="group_id" type="string" ></property>
+    <property name="brandName" column="brand_name" type="string" ></property>
+    <property name="brandNameLong" column="brand_name_long" type="string" ></property>
+    <property name="brandFirstLetter" column="brand_firstletter" type="string" ></property>
+    <property name="brandPinYin" column="brand_pinyin" type="string" ></property>
+    <property name="picURL" column="pic_url" type="string" ></property>
+    <property name="brandURL" column="brand_url" type="string" ></property>
+    <property name="hotelCount" column="hotel_count" type="Int32" ></property>
+    <property name="lastChangetime" column="last_change_time" type="DateTime" ></property>
+    <property column="status" name="status" type="string"  length="3" ></property>
+    <property column="type" name="type" type="string"   ></property>
+    <property column="rec_ind" name="recInd" type="string" length="1" ></property>
+    <property column="rec_level" name="recLevel" type="int" ></property>
+  </class>
+
+
+</hibernate-mapping>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+ 
+<class abstract="true" name="ZDSL.Model.Data.MemberCommentModel, ZDSL.Model" table="ZD_MEMBER_COMMENT" >
+  <id  name="id" column="id" type="string"></id>
+  <property name="title" column="title" type="String" length="500" />
+  <property name="context" column="context" type="String" />
+  <property name="createDate" column="create_date" type="DateTime" />
+  <property name="comStatus" column="com_status" type="String" length="50" />
+  <property name="status" column="status" type="String" length="3" />
+  <property name="orderFk" column="order_fk" type="int"  />
+  <property name="memberFk" column="member_fk" type="String" length="50" />
+  <property name="serviceScore" column="service_score" type="int"  />
+  <property name="hygieneScore" column="hygiene_score" type="int"  />
+  <property name="facilityScore" column="facility_score" type="int"  />
+  <property name="priceScore" column="price_score" type="int"  />
+  <property name="recommendInd" column="recommend_ind" type="string" length="1"  />
+</class>
+ 
+
+  <class abstract="true" name="ZDSL.Model.Data.NewsCommentModel, ZDSL.Model" table="ZD_NEWS_COMMENT" >
+    <id  name="id" column="id" type="string"></id>
+    <property name="title" column="title" type="String" length="500" />
+    <property name="context" column="context" type="String" />
+    <property name="createDate" column="create_date" type="DateTime" />
+    <property name="comStatus" column="com_status" type="String" length="50" />
+    <property name="status" column="status" type="String" length="3" />
+    <property name="newsFk" column="news_fk" type="String" length="50" />
+  </class>
+
+
+  <class abstract="true" name="ZDSL.Model.Data.ExhiCommentModel, ZDSL.Model" table="ZD_EXHI_COMMENT" >
+    <id  name="id" column="id" type="string"></id>
+    <property name="title" column="title" type="String" length="500" />
+    <property name="context" column="context" type="String" />
+    <property name="createDate" column="create_date" type="DateTime" />
+    <property name="comStatus" column="com_status" type="String" length="50" />
+    <property name="status" column="status" type="String" length="3" />
+    <property name="exhiFk" column="exhi_fk" type="String" length="50" />
+
+  </class>
+
+
+  <class abstract="true" name="ZDSL.Model.Data.HotelCommentModel, ZDSL.Model" table="ZD_HOTEL_COMMENT" >
+    <id  name="id" column="id" type="string"></id>
+    <property name="title" column="title" type="String" length="500" />
+    <property name="context" column="context" type="String" />
+    <property name="createDate" column="create_date" type="DateTime" />
+    <property name="comStatus" column="com_status" type="String" length="50" />
+    <property name="status" column="status" type="String" length="3" />
+    <property name="hotelFk" column="hotel_fk" type="String" length="50" />
+    <property name="hotelName" column="hotel_name" type="String"  />
+    <property name="memberFk" column="member_fk" type="String" length="50" />
+    <property name="memberNickName" column="member_nick_name" type="String"  />
+    <property name="serviceScore" column="service_score" type="int"  />
+    <property name="hygieneScore" column="hygiene_score" type="int"  />
+    <property name="facilityScore" column="facility_score" type="int"  />
+    <property name="priceScore" column="price_score" type="int"  />
+    <property name="recommendInd" column="recommend_ind" type="string" length="1"  />
+
+  </class>
+
+
+
+
+
+</hibernate-mapping>

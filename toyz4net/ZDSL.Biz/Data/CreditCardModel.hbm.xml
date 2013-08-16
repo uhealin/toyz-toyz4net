@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+  <class name="ZDSL.Model.Data.CreditCardModel, ZDSL.Model" table="ZD_CREDIT_CARD" >
+    <id name="number" column="number" type="String" length="50" />
+    <property name="veryfyCode" column="veryfy_code" type="String" length="50" />
+    <property name="veryfyYear" column="veryfy_year" type="Int32" length="4" />
+    <property name="veryfyMonth" column="veryfy_month" type="Int32" length="4" />
+    <property name="holderName" column="holder_name" type="String" length="50" />
+    <property name="holderIdType" column="holder_id_type" type="String" length="50" />
+    <property name="holderIdNo" column="holder_id_no" type="String" length="50" />
+    <property column="status" name="status" type="string"  length="3" ></property>
+  </class>
+
+</hibernate-mapping>
