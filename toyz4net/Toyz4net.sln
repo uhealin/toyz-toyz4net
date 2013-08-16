@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toyz4net.Core", "Toyz4net.Core\Toyz4net.Core.csproj", "{A0A02C7F-82CD-438C-888F-3765E7980634}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toyz4net.Test", "Toyz4net.Test\Toyz4net.Test.csproj", "{D943194A-CCA7-47D0-B6BA-49CF91B22576}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZDSL.Model", "ZDSL.Model\ZDSL.Model.csproj", "{452BAFF8-9BF5-4772-929E-FBF66987A515}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZDSL.Biz", "ZDSL.Biz\ZDSL.Biz.csproj", "{2B9C8107-F601-47CA-9F24-FE6279EB2345}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZDSL.Webapp", "ZDSL.Webapp\ZDSL.Webapp.csproj", "{B323ADF2-A5B4-4C27-8953-A06E710B2855}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZDSL.App", "ZDSL.App\ZDSL.App.csproj", "{C3D302DB-C140-4D6A-830B-5F94355BDD0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toyz4net.App", "Toyz4net.App\Toyz4net.App.csproj", "{418971F0-2060-4DAD-8FB9-EA7896F68221}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0A02C7F-82CD-438C-888F-3765E7980634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0A02C7F-82CD-438C-888F-3765E7980634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0A02C7F-82CD-438C-888F-3765E7980634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0A02C7F-82CD-438C-888F-3765E7980634}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D943194A-CCA7-47D0-B6BA-49CF91B22576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D943194A-CCA7-47D0-B6BA-49CF91B22576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D943194A-CCA7-47D0-B6BA-49CF91B22576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D943194A-CCA7-47D0-B6BA-49CF91B22576}.Release|Any CPU.Build.0 = Release|Any CPU
+		{452BAFF8-9BF5-4772-929E-FBF66987A515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{452BAFF8-9BF5-4772-929E-FBF66987A515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{452BAFF8-9BF5-4772-929E-FBF66987A515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{452BAFF8-9BF5-4772-929E-FBF66987A515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B9C8107-F601-47CA-9F24-FE6279EB2345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B9C8107-F601-47CA-9F24-FE6279EB2345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B9C8107-F601-47CA-9F24-FE6279EB2345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B9C8107-F601-47CA-9F24-FE6279EB2345}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B323ADF2-A5B4-4C27-8953-A06E710B2855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B323ADF2-A5B4-4C27-8953-A06E710B2855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B323ADF2-A5B4-4C27-8953-A06E710B2855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B323ADF2-A5B4-4C27-8953-A06E710B2855}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3D302DB-C140-4D6A-830B-5F94355BDD0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3D302DB-C140-4D6A-830B-5F94355BDD0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3D302DB-C140-4D6A-830B-5F94355BDD0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3D302DB-C140-4D6A-830B-5F94355BDD0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{418971F0-2060-4DAD-8FB9-EA7896F68221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{418971F0-2060-4DAD-8FB9-EA7896F68221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{418971F0-2060-4DAD-8FB9-EA7896F68221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{418971F0-2060-4DAD-8FB9-EA7896F68221}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
